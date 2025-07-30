@@ -1,46 +1,96 @@
-<!-- templates/index.html -->
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>Phishing URL Detector</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            margin: 50px;
-            background-image: url(v627-aew-01-technologybackground.jpg);
-             background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      height: 100vh;
-      margin: 0;
+            margin: 0;
+            padding: 0;
+            font-family: 'Courier New', Courier, monospace;
+            background-image: url("{{ url_for('static', filename='v627-aew-01-technologybackground.jpg') }}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #00ff00;
         }
+
         .container {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            width: 400px;
-            margin: auto;
-            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            background: rgba(0, 0, 0, 0.85);
+            padding: 40px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 0 20px #00ff00;
         }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 28px;
+            color: #00ff00;
+            text-shadow: 0 0 10px #00ff00;
+        }
+
         input[type="text"] {
+            padding: 12px;
             width: 100%;
-            padding: 10px;
-            margin-top: 10px;
+            border: 1px solid #00ff00;
+            border-radius: 6px;
+            font-size: 16px;
+            background-color: black;
+            color: #00ff00;
+            outline: none;
         }
+
+        input[type="text"]::placeholder {
+            color: #33ff33;
+        }
+
         button {
-            padding: 10px;
-            width: 100%;
-            background: #007BFF;
-            color: white;
-            border: none;
-            margin-top: 10px;
-        }
-        .result {
-            font-size: 18px;
             margin-top: 20px;
+            margin-bottom: 40px;
+            padding: 12px;
+            width: 100%;
+            background: #00ff00;
+            color: black;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px #00ff00;
+            transition: 0.2s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #33ff33;
+            box-shadow: 0 6px 14px #00ff00;
+        }
+
+        button:active {
+            transform: scale(0.97);
+            box-shadow: 0 2px 6px #009900;
+        }
+
+        .result {
+            margin-top: 25px;
+            font-size: 20px;
             font-weight: bold;
-            color: darkred;
+            color: #ff5555;
+            text-shadow: 0 0 6px red;
+        }
+
+        @media (max-width: 500px) {
+            .container {
+                padding: 20px;
+            }
         }
     </style>
 </head>
