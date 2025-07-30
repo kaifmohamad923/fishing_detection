@@ -102,7 +102,9 @@
             <button type="submit">Check</button>
         </form>
    {% if result %}
-    <div class="result" style="color: {{ color }};">Result: {{ result }}</div>
+    <div class="result" style="color: {{ color }}; text-shadow: 1px 1px 2px {{ shadow }};">
+    Result: {{ result }}
+</div>
 {% endif %}
    
 </body>
