@@ -16,7 +16,7 @@ def home():
         prediction = model.predict(features)[0]
         result = "PHISHING" if prediction == 1 else "LEGITIMATE"
         color = "red" if prediction == 1 else "lime"
-        shadow = "#FD0404" if prediction == 1 else "#00FF00"  # ✅ shadow changes too
+        shadow = "#FD0404A0" if prediction == 1 else "#00FF00A4"  # ✅ shadow changes too
     return render_template('index.html', result=result, color=color, shadow=shadow)
 
 if __name__ == '__main__':
