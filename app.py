@@ -3,13 +3,9 @@ import pickle
 
 app = Flask(__name__)
 
-# Load the model
+# Load pipeline (vectorizer + classifier)
 with open("model.pkl", "rb") as f:
     model = pickle.load(f)
-
-# Load the vectorizer
-with open("vectorizer.pkl", "rb") as f:
-    vectorizer = pickle.load(f)
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
@@ -18,8 +14,7 @@ def home():
     shadow = None
     if request.method == 'POST':
         url = request.form['url']
-        features = vectorizer.transform([url])  # No need for extract_features()
-        prediction = model.predict(features)[0]
+        prediction = model.predict([url])[0]
         result = "PHISHING ❌" if prediction == 1 else "VERIFIED ✅️"
         color = "red" if prediction == 1 else "lime"
         shadow = "#FD0404A0" if prediction == 1 else "#00FF00A4"
