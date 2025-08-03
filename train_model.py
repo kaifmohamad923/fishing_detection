@@ -19,9 +19,12 @@ X_features = vectorizer.fit_transform(X)
 model = MultinomialNB()
 model.fit(X_features, y)
 
-# Save model and vectorizer using pickle
+# Assuming `model` and `vectorizer` are already trained
 with open("model.pkl", "wb") as f:
     pickle.dump(model, f)
+
+with open("vectorizer.pkl", "wb") as f:
+    pickle.dump(vectorizer, f)
 
 
 print("✅ Model and vectorizer saved successfully.")
